@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 export interface PortfolioInfo {
   basics: Basics;
@@ -30,6 +30,6 @@ export interface Profile {
   url: string;
 }
 
-export function getPortfolioInfo() {
+export function getPortfolioInfo(): Promise<AxiosResponse<PortfolioInfo>> {
   return axios.get("https://gitconnected.com/v1/portfolio/tglide");
 }
